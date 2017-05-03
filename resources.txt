@@ -2,3 +2,5 @@ Resources
 
 hashing and storing:
 https://alias.io/2010/01/store-passwords-safely-with-php-and-mysql/
+http://php.net/manual/en/book.mcrypt.php
+http://code-epicenter.com/how-to-use-mcrypt-library-in-php/
