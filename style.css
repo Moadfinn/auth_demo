@@ -18,7 +18,7 @@ p {
 	color: #33ff66;
 	font-family: "Courier New", Courier, monospace;
 }
-table.login {
+.login {
 	background-color: #1f1f1f;
 	margin: auto;
 	width: 560;
@@ -26,6 +26,16 @@ table.login {
 	align: center;
 	padding: 15px;
 }
+
+.acDetails {
+	background-color: #1f1f1f;
+	margin: auto;
+	width: 560;
+	border: 1px solid grey;
+	align: center;
+	padding: 15px;
+}
+
 input {
 	background-color: #000000;
 	color: #33ff66;
