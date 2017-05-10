@@ -11,8 +11,21 @@ h3 {
 	text-align: left;
 	font-weight: lighter;
 }
-p {
-
+a:link {
+	color: #33ff66;
+	text-decoration: none;
+}
+a:visited {
+	color: #1b8436;
+	text-decoration: none;
+}
+a:hover {
+	color: #75ff97;
+	text-decoration: none;
+}
+a:active {
+	color: #09f744;
+	text-decoration: none;
 }
 .phos {
 	color: #33ff66;
@@ -28,6 +41,13 @@ p {
 }
 
 .acDetails {
+	background-color: #1f1f1f;
+	border: 1px solid grey;
+	align: center;
+	padding: 15px;
+}
+
+.aclist {
 	background-color: #1f1f1f;
 	margin: auto;
 	width: 560;
