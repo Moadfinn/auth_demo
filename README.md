@@ -1,5 +1,5 @@
 # auth_demo
-PHP web app with authentication and authorization controls.
+PHP web app
 
 This is a demo project.
 
