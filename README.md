@@ -3,8 +3,4 @@ PHP web app with authentication and authorization controls.
 
 This is a demo project.
 
-Priorities:
-  Admin functionality
-    CRUD operations
-    MySQL database
-  User Login
+For admin use only. Admin can perform CRUD operations on database.
