@@ -21,7 +21,10 @@
 		<? php //foreach(): ?>
 			<tr>
 				<td>
-					<a href="">php-generated name</a>
+					<form action="accountdetails.php" method="POST">
+						<input type="hidden" name="param1" value="<?php //account id num here?>">
+						<a href="#" onclick="this.parentNode.submit()">Firstname Lastname</a>
+					</form>
 				</td>
 				<td>
 					<form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

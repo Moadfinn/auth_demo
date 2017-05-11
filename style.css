@@ -1,22 +1,19 @@
 body {
   background-color: #000000;
 }
-h1, h2 {
+h1, h2, h3 {
 	color: #33ff66;
 	text-align: center;
 	font-family: "Courier New", Courier, monospace;
 	font-weight: lighter;
 }
-h3 {
-	text-align: left;
-	font-weight: lighter;
-}
+
 a:link {
 	color: #33ff66;
 	text-decoration: none;
 }
 a:visited {
-	color: #1b8436;
+	color: #33ff66;
 	text-decoration: none;
 }
 a:hover {
@@ -30,14 +27,12 @@ a:active {
 .phos {
 	color: #33ff66;
 	font-family: "Courier New", Courier, monospace;
+	font-weight: lighter;
 }
-.login {
-	background-color: #1f1f1f;
-	margin: auto;
-	width: 560;
-	border: 1px solid grey;
-	align: center;
-	padding: 15px;
+
+.button {
+	background-color: #000000;
+	color: #33ff66;
 }
 
 .acDetails {
