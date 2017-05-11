@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	
+
 <?php
 
 	$first_name = $_POST['firstName'];
@@ -18,7 +18,7 @@
 	<center>
 		<br><br><h1>Account Details<h1><br>
 	</center>
-	<table class="acDetails">
+	<table class="aclist">
 		<tbody>
 			<tr>
 				<td>
@@ -55,8 +55,9 @@
 			<tr>
 				<td>
 					<a href="accountlist.php"><button class="button" type="button">Back</button></a>
-				</td>			
+				</td>
 				<td>
+					<input type="hidden" value="1" name="isupdate">
 					<input type="submit" value="Submit" name="submit">
 				</td>
 			</tr>
@@ -64,7 +65,7 @@
 	</table>
 	</form>
 
-	
+
 </body>
 
 

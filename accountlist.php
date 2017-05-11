@@ -4,6 +4,35 @@
 	<title>Account List</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<?php
+$user = "root";
+$pword = "root";
+$db = "WHWebApp";
+$host = "localhost";
+$port = "27583";
+
+$link = mysqli_init();
+if (!$link) {
+	die('mysqli_init failed');
+}
+$mysqli = mysqli_real_connect(
+   $link,
+   $host,
+   $user,
+   $pword,
+   $db,
+   $port
+);
+if (!$mysqli) {
+	die('Connect Error: ' . mysqli_connect_error());
+}
+
+$isupdate = $_POST('isupdate');
+if ($isupdate != null && $isupdate == 1) {
+	$stmt = "";
+}
+
+?>
 <body>
 	<center>
 		<br><br><h1>Account List<h1><br>
