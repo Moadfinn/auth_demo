@@ -40,7 +40,8 @@ a:active {
 	border: 1px solid grey;
 	align: center;
 	padding: 15px;
-  align: center;
+	align: center;
+	display: inline-block;
 }
 
 .aclist {
@@ -50,6 +51,7 @@ a:active {
 	border: 1px solid grey;
 	align: center;
 	padding: 15px;
+	display: inline-block;
 }
 
 input {
