@@ -7,17 +7,20 @@
 <body>
 
 <?php
+	include 'database.php';
+	$pdo = Database::connect();
+	$sql = 'SELECT * FROM accounts ORDER BY id DESC';
+
 
 	$first_name = $_POST['firstName'];
 	$last_name = $_POST['lastName'];
 	$username = $_POST['username'];
 
 ?>
-
-	<form method="POST" action="accountlist.php">
 	<center>
 		<br><br><h1>Account Details<h1><br>
 	</center>
+	<!-- List of accounts -->
 	<table class="aclist">
 		<tbody class="phos">
 			<tr>
@@ -27,34 +30,29 @@
 				<th>
 				</th>
 			</tr>
-	<? php //foreach(): ?>
+	<? php foreach($pdo->//I STOPPED RIGHT HERE
+//https://www.startutorial.com/articles/view/php-crud-tutorial-part-1
+//https://www.w3schools.com/php/php_mysql_connect.asp
+
+	): ?>
 		<? php //foreach(): ?>
 			<tr>
 				<td>
-					<form action="accountdetails.php" method="POST">
+					<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
 						<input type="hidden" name="param1" value="<?php //account id num here?>">
 						<a href="#" onclick="this.parentNode.submit()">Firstname Lastname</a>
-					</form>
+
 				</td>
 				<td>
-					<form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 						<input type="submit" value="Delete">
 					</form>
 				</td>
 			</tr>
 		<?php //endforeach;?>
 	<?php //endforeach;?>
-			<tr>
-				<td>
-					<form action="accountdetails.php" method="post">
-						<input type="submit" value="Add Account">
-					</form>
-				</td>
-				<td>
-				</td>
-			</tr>
 		</tbody>
 	</table>
+	<form method="POST" action="accountlist.php">
 	<table class="aclist">
 		<tbody>
 			<tr>
