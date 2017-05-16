@@ -10,21 +10,21 @@
 
 	require 'database.php';
 	require 'utils.php';
-	
+
 	//if called by POST request...
 	if (!empty($_POST)) {
 		$firstNameError = null;
 		$lastNameError = null;
 		$usernameError = null;
 		$pwordError = null;
-		
+
 		//track post values
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$username = $_POST['username'];
 		$pword = $_POST['pword'];
 		$cupdate = $_POST['update'];
-		
+
 		//validate and sanitize input
 		$valid = true;
 		if (empty($firstname)) {
@@ -58,15 +58,11 @@
 		}
 		//hash password
 		$pword = password_hash($pword, PASSWORD_DEFAULT);
-		
-		
-		
-		
-		
-		
-		//insert data
+
+		//If all data is valid...
 		if ($valid) {
-			$pdo = Database::connect();	
+			$pdo = Database::connect();
+			//If this is an update...
 			if (!empty($cupdate)) {
 				$cupdate = filterinput($cupdate);
 				$sql = 'UPDATE whwebapp.accounts SET firstname=:firstname, lastname=:lastname, username=:username, pword=:pword WHERE id = :cupdate';
@@ -77,6 +73,7 @@
 				$query->bindParam(':pword', $pword, PDO::PARAM_STR);
 				$query->bindParam(':cupdate', $cupdate, PDO::PARAM_INT);
 			}
+			//Otherwise this is an insert
 			else {
 				$sql = 'INSERT INTO whwebapp.accounts(firstname, lastname, username, pword) VALUES(:firstname,:lastname,:username,:pword)';
 				$query = $pdo->prepare($sql);
@@ -88,7 +85,7 @@
 			$result = $query->execute();
 			Database::disconnect();
 			if ($result) {
-				header("Location: http://localhost/php_app/index.php", true, 301);
+				echo '<script>window.location="http://localhost/php_app/index.php";</script>';
 				die();
 			}
 		}
@@ -96,12 +93,11 @@
 	//called by clicking update button
 	else if (!empty($_GET['id'])) {
 		$id = $_GET['id'];
-		$id = htmlspecialchars($id);
-		$id = strip_tags($id);
-		$id = filter_var($id, FILTER_SANITIZE_STRING);
-		
+		//sanitize id value
+		$id = filterinput($id);
+
 		if (null==$id) {
-			header("Location: index.php");
+			echo '<script>window.location="http://localhost/php_app/index.php";</script>';
 		}
 		else {
 			$pdo = Database::connect();
@@ -113,7 +109,7 @@
 			Database::disconnect();
 			//if select query returned false, go back to index
 			if (empty($data)) {
-				header("Location: http://localhost/php_app/index.php", true, 301);
+				echo '<script>window.location="http://localhost/php_app/index.php";</script>';
 				die();
 			}
 			$firstname = $data['firstname'];

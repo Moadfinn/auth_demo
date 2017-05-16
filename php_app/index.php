@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Account Details</title>
+	<title>Account Management</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -9,15 +9,16 @@
 <?php
 	require 'database.php';
 	require 'utils.php';
-	
+
+	//If this page requested with POST method...
 	$id = 0;
 	if (!empty($_POST)) {
 		$id = $_POST['id'];
 		$id = filterinput($id);
-		
+
 		//after filter, check that there is still a value
 		if (empty($id)) {
-			header("Location: http://localhost/php_app/index.php", true, 301);
+			echo '<script>window.location="http://localhost/php_app/index.php";</script>';
 			die();
 		}
 		else {
@@ -30,7 +31,7 @@
 			Database::disconnect();
 			if ($result) {
 				$id = null;
-				header("Location: http://localhost/php_app/index.php", true, 301);
+				echo '<script>window.location="http://localhost/php_app/index.php";</script>';
 				die();
 			}
 			else {
@@ -38,6 +39,7 @@
 			}
 		}
 	}
+	//Normal GET request starts here
 	$pdo = Database::connect();
 	$sql = 'SELECT * FROM whwebapp.accounts ORDER BY id ASC';
 ?>
@@ -49,7 +51,7 @@
 		<tbody class="phos">
 			<tr>
 				<th>
-					First Name
+					<h3>First Name</h3>
 				</th>
 				<th>
 					<h3>Last Name</h3>
@@ -61,7 +63,8 @@
 					<h3>Action</h3>
 				</th>
 			</tr>
-		<?php 
+		<?php
+		//Build dynamic list of accounts
 		$pdo->query($sql);
 		foreach($pdo->query($sql) as $row): ?>
 			<tr>
@@ -84,7 +87,7 @@
 				</form>
 				</td>
 			</tr>
-		<?php endforeach; 
+		<?php endforeach;
 			Database::disconnect(); ?>
 			<tr>
 				<td colspan="5" style="text-align: center">

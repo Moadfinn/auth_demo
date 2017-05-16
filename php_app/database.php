@@ -14,6 +14,13 @@ class Database {
 	}
 
 	public static function connect() {
+
+		$user = 'root';
+		$pword = 'root';
+		$db = 'whwebapp';
+		$host = 'localhost';
+
+
 		//one connection only
 		if (null == self::$dbc) {
 			try {

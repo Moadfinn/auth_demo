@@ -1,5 +1,7 @@
-<?php 
-	//Filters data 
+<?php
+	/*	Sanitizes data passed in as parameter.
+	*		@return sanitized data.
+	*/
 	function filterinput($data) {
 		$data = trim($data);
 		$data = stripslashes($data);
